@@ -1,10 +1,13 @@
 ## PegJump
-Objective: clear the board of pegs (X's) by jumping pegs over adjacent pegs into free spaces (O's)
-Input/Output: The topmost row starts at 0 and the increase downwards; the rightmost spot in each row starts at 0 and increases across the row.  
-              Specify the jumping from piece (rowIndex columnIndex) and the destination (rowIndex columnIndex).  
-              Press <Enter> to undo the previous move.  
+# Objective
+Clear the board of pegs (X's) by jumping pegs over adjacent pegs into free spaces (O's)
+#Input/Output
+The topmost row starts at 0 and the increase downwards; the rightmost spot in each row starts at 0 and increases across the row.  
+Specify the jumping from piece (rowIndex columnIndex) and the destination (rowIndex columnIndex).  
+Press <Enter> to undo the previous move.  
 
 ## Example Gameplay
+```
       O 
      X X 
     X X X 
@@ -125,3 +128,4 @@ Input/Output: The topmost row starts at 0 and the increase downwards; the rightm
  	***GAME OVER***
 
 Process finished with exit code 0
+```
