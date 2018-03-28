@@ -37,8 +37,6 @@ class PegJump {
     }
 
     public void printBoard() {
-        if (isGameOver())
-            System.out.println("\t***GAME OVER***");
         System.out.println(" ");
         //System.out.printf("0:");
         for (int iter = 0; iter <= ROWS; iter++)
@@ -60,10 +58,10 @@ class PegJump {
 
     public boolean makeMove(int srcRow, int srcIndex, int destRow, int destIndex) {
         // check validity
-        if (!isValidMove(srcRow, srcIndex, destRow, destIndex))
+        if (!isValidMove(srcRow, srcIndex, destRow, destIndex)) {
+            System.out.println("***INVALID MOVE***");
             return false;
-
-        System.out.println("Valid Move");
+        }
 
         board[srcRow][srcIndex] = false;
         board[(srcRow + destRow) / 2][(srcIndex + destIndex) / 2] = false;
@@ -180,7 +178,13 @@ class PegJump {
             undoMove();
             return;
         }
-        int[] numbers = Arrays.stream(inputLine.split(" ")).mapToInt(Integer::parseInt).toArray();
-        makeMove(numbers[0], numbers[1], numbers[2], numbers[3]);
+        try {
+            int[] numbers = Arrays.stream(inputLine.split(" ")).mapToInt(Integer::parseInt).toArray();
+            makeMove(numbers[0], numbers[1], numbers[2], numbers[3]);
+        }
+        catch (Exception E) {
+            System.out.println("***Invalid Input***");
+            userInput();
+        }
     }
 }
